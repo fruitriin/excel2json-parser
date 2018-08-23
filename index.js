@@ -14,7 +14,17 @@ const configs = {
                 "Spec", "ShortDesc", "Next"
 
             ]
+        },
+        "NationalSpell" :{
+            "targetColumns" : [
+                "Name", "School", "Lv", "Main", "Sub", "Cost",
+                "Use", "Terrain", "Type",
+                "Damage", "Range", "Time", "AoE", "Number", "Prec", "Fatigue",
+                "Spec", "ShortDesc", "Next"
+
+            ]
         }
+
     }
 };
 
