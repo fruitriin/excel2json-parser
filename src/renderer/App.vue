@@ -1,24 +1,23 @@
 <template>
   <div id="app">
-    <div class="file-drop-area" v-if="!file">
+    <div class="file-drop-area">
       Excelファイルをドラッグ・アンド・ドロップしてください。
-    </div>
-    <div v-else>
     </div>
 
     <div class="sheetTabs">
       シート名(タブ)
     </div>
     <div class="sheetConfigs">
-      シート別詳細設定
 
-      出力列:
+      シート別詳細設定<br>
 
-      ヘッダー行調整:
-      データ行調整:
+      出力列:<br>
 
-      データのキー:
-      
+      ヘッダー行調整:<br>
+      データ行調整:<br>
+
+      データのキー:<br>
+
     </div>
 
 
@@ -26,43 +25,41 @@
 </template>
 
 <script>
-  import LandingPage from '@/components/LandingPage';
-
   const sheetConfDefault = {
-      willOutput: true,
-      headerRowOffset: 0,
-      dataRowOffset: 0,
-      targetColNames: [],
-      preview: false
-  }
+    willOutput: true,
+    headerRowOffset: 0,
+    dataRowOffset: 0,
+    targetColNames: [],
+    preview: false,
+  };
 
   export default {
-      name: 'excel2json-parser',
-      data: function(){
-        return {
-            file: {},
-            rawData: {},
-            config: {
+    name: 'excel2json-parser',
+    data() {
+      return {
+        file: {},
+        rawData: {},
+        config: {
 
-            },
-        }
+        },
+      };
+  },
+    computed: {
+      previewData() {
+
       },
-      computed:{
-        previewData(){
+    },
+    methods: {
+      openFile() {
 
-        }
       },
-      methods:{
-          openFile(){
+      outputJson() {
 
-          },
-          outputJson(){
+      },
+      saveConfig() {
 
-          },
-          saveConfig(){
-
-          },
-      }
+      },
+    },
 
   };
 </script>
