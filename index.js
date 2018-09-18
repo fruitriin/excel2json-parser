@@ -13,7 +13,8 @@ const configs = {
                 "Damage", "Range", "Time", "AoE", "Number", "Prec", "Fatigue",
                 "Spec", "ShortDesc", "Next"
 
-            ]
+            ],
+            "skipKey" : "Name"
         },
         "NationalSpell" :{
             "targetColumns" : [
@@ -22,42 +23,21 @@ const configs = {
                 "Damage", "Range", "Time", "AoE", "Number", "Prec", "Fatigue",
                 "Spec", "ShortDesc", "Next"
 
-            ]
+            ],
+            "skipKey" : "Name"
         },
         "Item": {
             "targetColumns" : [
-                "Group","Type","Lv","Name",
-                "Main","Sub","Mc","Sc","Dam","Arm","LD","Cap","Holy",
-                "AM","Size","Str","Cha","Re","Two","Fla","Head","Res","Bon",
-                "NbrA","AoE","Lin","Att","Def","Ran","Pre","Amm","UW","Len",
-                "HP","BP","SP","Ade","Par","Enc","MMp","Mag","OnD","OnH",
-                "OnA","FR","SR","CR","PR","AR","IP","Inv","PF","Awe","AA",
-                "Fear","He","Ch","FS","AS","OC","PB","Pet","DR",
-                "Bless","Ber","GB","Tra","DV","Reg","Rei","Ste","invis","Ass",
-                "Sed","Rea","Her","Inq","AdS","DoS","GoM","Ins","TM","BM","Co",
-                "Uc","Pill","SupB","WB","Sail","Heal","Mas","Eth","Swi",
-                "Qui","Enl","StP","Luck","TF","FL","Curse","Taint","Dise","Eye","Che",
-                "Fee","Insa","Sie","Fly","SI","Flo","FSu","MSu","SSu","WSu","SnM","Swim",
-                "BS","ReB","DM","IL","ACB","ForB","MaS","MaR","Alc","CoM","CoS","Res",
-                "F","A","W","E","S","D","N","B","H","FC","GG","TG","Spec"]
+                "Name","Pname","Main","Sub","Mc","Sc","Dam","DType","Arm","LD","Cap","Holy","AM","Size","Str","Cha","Re","Two","Fla","Head","Resi","Bon","NbrA","AoE","Lin","Att","Def","Ran","Pre","Amm","UW","Len","HP","BP","SP","Ade","Par","Enc","MMp","Mag","OnD","OnH","OnA","FR","SR","CR","PR","AR","IP","Inv","PF","Awe","AA","Fear","He","Ch","FS","AS","OC","PoB","Pet","DR","Bless","Ber","GB","Tra","DV","Reg","Rei","Ste","invis","Ass","Sed","Rea","Her","Inq","AdS","DoS","GoM","Ins","TM","BM","Co","Mco","Uco","Pill","PB","SupB","WB","Sail","Heal","Mas","Eth","Swi","Qui","Enl","StP","Luck","TF","FL","Curse","Taint","Dise","Eye","Che","Fee","Insa","Sie","Fly","SI","Flo","FSu","MSu","SSu","WSu","SnM","Swim","BS","ReB","DM","IL","ACB","ForB","MaS","MaR","Alc","CoM","CoS","Res","F","A","W","E","S","D","N","B","H","FC","GG","TG","Spec"
+            ],
+            "skipKey" : "Name"
         },
-        "NationalItem" : {
+        "NationalItem": {
             "targetColumns" : [
-                "Group","Type","Lv","Name",
-                "Main","Sub","Mc","Sc","Dam","Arm","LD","Cap","Holy",
-                "AM","Size","Str","Cha","Re","Two","Fla","Head","Res","Bon",
-                "NbrA","AoE","Lin","Att","Def","Ran","Pre","Amm","UW","Len",
-                "HP","BP","SP","Ade","Par","Enc","MMp","Mag","OnD","OnH",
-                "OnA","FR","SR","CR","PR","AR","IP","Inv","PF","Awe","AA",
-                "Fear","He","Ch","FS","AS","OC","PB","Pet","DR",
-                "Bless","Ber","GB","Tra","DV","Reg","Rei","Ste","invis","Ass",
-                "Sed","Rea","Her","Inq","AdS","DoS","GoM","Ins","TM","BM","Co",
-                "Uc","Pill","SupB","WB","Sail","Heal","Mas","Eth","Swi",
-                "Qui","Enl","StP","Luck","TF","FL","Curse","Taint","Dise","Eye","Che",
-                "Fee","Insa","Sie","Fly","SI","Flo","FSu","MSu","SSu","WSu","SnM","Swim",
-                "BS","ReB","DM","IL","ACB","ForB","MaS","MaR","Alc","CoM","CoS","Res",
-                "F","A","W","E","S","D","N","B","H","FC","GG","TG","Spec"]
-        }
+                "Name","Pname","Main","Sub","Mc","Sc","Dam","DType","Arm","LD","Cap","Holy","AM","Size","Str","Cha","Re","Two","Fla","Head","Resi","Bon","NbrA","AoE","Lin","Att","Def","Ran","Pre","Amm","UW","Len","HP","BP","SP","Ade","Par","Enc","MMp","Mag","OnD","OnH","OnA","FR","SR","CR","PR","AR","IP","Inv","PF","Awe","AA","Fear","He","Ch","FS","AS","OC","PoB","Pet","DR","Bless","Ber","GB","Tra","DV","Reg","Rei","Ste","invis","Ass","Sed","Rea","Her","Inq","AdS","DoS","GoM","Ins","TM","BM","Co","Mco","Uco","Pill","PB","SupB","WB","Sail","Heal","Mas","Eth","Swi","Qui","Enl","StP","Luck","TF","FL","Curse","Taint","Dise","Eye","Che","Fee","Insa","Sie","Fly","SI","Flo","FSu","MSu","SSu","WSu","SnM","Swim","BS","ReB","DM","IL","ACB","ForB","MaS","MaR","Alc","CoM","CoS","Res","F","A","W","E","S","D","N","B","H","FC","GG","TG","Spec"
+            ],
+            "skipKey" : "Name"
+        },
 
 
     }
@@ -68,16 +48,17 @@ const sheets = workSheetsFromFile.filter((sheet)=>{
 });
 
 for(let sheet of sheets){
-    const sheetname = sheet.name;
+    let sheetname = sheet.name;
     let newdata = [];
     let index = new Array();
     for(let rowNum in sheet.data){
         row = sheet.data[rowNum];
-
+        let skipKey = 0;
         if(index.length === 0){
+            skipKey = row.indexOf(configs.sheetLists[sheetname].skipKey);
             for(let headNum in row){
                 let head = row[headNum];
-                let ordinal = configs.sheetLists[sheetname].targetColumns.indexOf(head)
+                let ordinal = configs.sheetLists[sheetname].targetColumns.indexOf(head);
                 if(ordinal !== -1){
                     index[ordinal] = {"name" :head,  "index": headNum};
                 }
@@ -85,15 +66,16 @@ for(let sheet of sheets){
             continue;
         }
 
+
+        if(row[skipKey] === undefined) continue;
         let newrow = {};
         for(let col of index){
-            console.log(col);
             newrow[col.name] = row[col.index] !== undefined ? row[col.index] : null;
         }
         newdata.push(newrow);
     }
 
-    console.log(newdata)
+    // console.log(newdata)
     const resultJson = JSON.stringify(newdata,undefined,1)
     // console.log(resultJson);
 
