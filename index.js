@@ -1,10 +1,9 @@
 const xlsx = require('node-xlsx').default;
 const fs = require('fs');
 
-const workSheetsFromFile = xlsx.parse(`${__dirname}/WikiData.xlsm`);
-
 const configs = JSON.parse(fs.readFileSync('./config.json', 'utf-8'))
 
+const workSheetsFromFile = xlsx.parse(`${__dirname}/${configs.srcFile}`);
 // config記載のシートのみに絞り込む
 const sheets = workSheetsFromFile.filter((sheet) => {
     return Object.keys(configs.sheetLists).indexOf(sheet.name) !== -1
