@@ -15,17 +15,16 @@ for (let sheet of sheets) {
     let sheetName = sheet.name;
     let newData = [];
     let indexes = [];
+    let skipKey = 0; //スキップ用のカラムが何番目か
 
     // データの各行にループ
     Object.keys(sheet.data).forEach(rowNum => {
         row = sheet.data[rowNum];
-        let skipKey = 0; // スキップ判定用のカラムが何番目の列か
 
         // １行目だけカラム名が何行目にあるか採取
         if (indexes.length === 0) {
             // スキップ判定の列番号を採番
             skipKey = row.indexOf(configs.sheetLists[sheetName].skipKey);
-
             // 出力用の列番号をキー名と列番号のペアで採番
             Object.keys(row).forEach(headNum => {
                 let head = row[headNum];
@@ -36,6 +35,8 @@ for (let sheet of sheets) {
             });
             return;
         }
+        // スキップ判定に使うキーが 空の行は処理をスキップする
+        if(row[skipKey] === undefined) return
 
         // 行を作成
         let newRow = {};
