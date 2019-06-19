@@ -80,6 +80,8 @@ for(let sheet of sheets){
     // console.log(resultJson);
 
     fs.writeFileSync( "./output/" + sheetname + ".json", resultJson);
+    fs.mkdir('./output', () => {
+    })
 
 }
 
