@@ -12,7 +12,7 @@ const sheets = workSheetsFromFile.filter((sheet) => {
 // シートデータを順繰りに処理
 for (let sheet of sheets) {
     let sheetName = sheet.name;
-    let indexes = [];
+    let indexes = {};
     let sheetConfig = configs.sheetLists[sheetName];
 
     let newData = sheetConfig.keyIndex === undefined ? [] : {};
@@ -24,7 +24,7 @@ for (let sheet of sheets) {
         row = sheet.data[rowNum];
 
         // １行目だけカラム名が何行目にあるか採取
-        if (indexes.length === 0) {
+        if (Object.keys(indexes).length === 0) {
             // スキップ判定の列番号を採番
             skipKey = row.indexOf(sheetConfig.skipKey);
             // 出力用の列番号をキー名と列番号のペアで採番
@@ -32,7 +32,7 @@ for (let sheet of sheets) {
                 let head = row[headNum];
                 let ordinal = configs.sheetLists[sheetName].targetColumns.indexOf(head);
                 if (ordinal !== -1) {
-                    indexes[ordinal] = {"name": head, "skipKey": headNum};
+                    indexes[head] = headNum;
                 }
             });
             return;
@@ -43,15 +43,14 @@ for (let sheet of sheets) {
         // 行を作成
         let newRow = {};
         // indexesから値データを詰めていく
-        for (let col of indexes) {
-            newRow[col.name] = row[col.skipKey] !== undefined ? row[col.skipKey] : '';
-        }
+        Object.keys(indexes).forEach(colName => {
+            newRow[colName] = row[indexes[colName]] !== undefined ? row[indexes[colName]] : ''
+        })
 
         if(sheetConfig.keyIndex === undefined){
             newData.push(newRow);
         }else{
-            console.log([sheetConfig.keyIndex, row[sheetConfig.keyIndex], indexes])
-            newData[row[sheetConfig.keyIndex]] = newRow
+            newData[row[indexes[sheetConfig.keyIndex]]] = newRow
         }
         
     });

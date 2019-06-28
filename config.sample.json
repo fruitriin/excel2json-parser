@@ -4,6 +4,7 @@
     "Spell": {
       "targetColumns": [
         "Name",
+        "Pname",
         "School",
         "Lv",
         "Main",
@@ -23,11 +24,13 @@
         "ShortDesc",
         "Next"
       ],
-      "skipKey": "Name"
+      "skipKey": "Name",
+      "keyIndex": "Pname"
     },
     "NationalSpell": {
       "targetColumns": [
         "Name",
+        "Pname",
         "School",
         "Lv",
         "Main",
@@ -47,7 +50,16 @@
         "ShortDesc",
         "Next"
       ],
-      "skipKey": "Name"
+      "skipKey": "Name",
+      "keyIndex": "Pname"
+    },
+    "NationalSpellWork": {
+      "targetColumns": [
+        "Era",
+        "Nation",
+        "Name"
+      ],
+      "skipKey" : "Era"
     },
     "Item": {
       "targetColumns": [
@@ -344,4 +356,5 @@
       "skipKey": "Name"
     }
   }
+
 }
