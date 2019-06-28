@@ -12,8 +12,11 @@ const sheets = workSheetsFromFile.filter((sheet) => {
 // シートデータを順繰りに処理
 for (let sheet of sheets) {
     let sheetName = sheet.name;
-    let newData = [];
     let indexes = [];
+    let sheetConfig = configs.sheetLists[sheetName];
+
+    let newData = sheetConfig.keyIndex === undefined ? [] : {};
+
     let skipKey = 0; //スキップ用のカラムが何番目か
 
     // データの各行にループ
@@ -23,7 +26,7 @@ for (let sheet of sheets) {
         // １行目だけカラム名が何行目にあるか採取
         if (indexes.length === 0) {
             // スキップ判定の列番号を採番
-            skipKey = row.indexOf(configs.sheetLists[sheetName].skipKey);
+            skipKey = row.indexOf(sheetConfig.skipKey);
             // 出力用の列番号をキー名と列番号のペアで採番
             Object.keys(row).forEach(headNum => {
                 let head = row[headNum];
@@ -44,7 +47,13 @@ for (let sheet of sheets) {
             newRow[col.name] = row[col.skipKey] !== undefined ? row[col.skipKey] : '';
         }
 
-        newData.push(newRow);
+        if(sheetConfig.keyIndex === undefined){
+            newData.push(newRow);
+        }else{
+            console.log([sheetConfig.keyIndex, row[sheetConfig.keyIndex], indexes])
+            newData[row[sheetConfig.keyIndex]] = newRow
+        }
+        
     });
 
     const resultJson = JSON.stringify(newData, undefined, 1)
